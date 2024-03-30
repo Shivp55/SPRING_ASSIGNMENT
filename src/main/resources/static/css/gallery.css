@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-img {
+    display: flex;
+}
+
+.logo img {
+    height: 40px;
+    width: 90px;
+}
+
+.logo-img>p {
+    font-weight: bolder;
+    font-size: 29px;
+    font-style: italic;
+}
+
+.logo-contacts {
+    display: inline-block;
+    display: flex;
+    margin-left: 40px;
+}
+
+.logo-contacts p {
+    margin-left: 20px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: linear-gradient(95deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%),
+            hsl(229.2, 26.04%, 37.65%),
+            hsl(206.3, 46.5%, 69.22%));
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.nav-bar>button {
+    padding: 12px 28px;
+    border: 2px solid black;
+    outline-width: 0;
+    color: white;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: 500;
+    background-image: linear-gradient(120deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%));
+}
+
+.nav-bar button:hover {
+    background: linear-gradient(105deg,
+
+            hsl(225.82, 22.45%, 48.04%),
+            hsl(206.3, 46.5%, 69.22%));
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a,
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a {
+    font-size: 18px;
+    box-sizing: border-box;
+    font-style: normal;
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #142340;
+}
+
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fcfeff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    color: black;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #142340;
+    color: whitesmoke;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* Sticky Navigation Bar */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.banner {
+    padding-top: 60px;
+}
+
+/* Body Section  */
+/* Middle Container Containing images  */
+
+#middle-container {
+
+    /* background-color: #003251; */
+    padding-bottom: 20px;
+
+}
+
+.middle-container-1 img {
+    width: 30%;
+    height: 30%;
+}
+
+.row {
+    margin-left: 180px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.middle-container-1 {
+
+    flex: 50%;
+    padding: 0 4px;
+}
+
+.middle-container-1 img {
+    margin-top: 8px;
+    vertical-align: top;
+    padding: 10px 10px;
+}
+
+/* footer  */
+.footer {
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    background: linear-gradient(109deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%),
+            hsl(229.2, 26.04%, 37.65%),
+            hsl(206.3, 46.5%, 69.22%));
+    height: 30vh;
+}
+
+.footer-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 2rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.social-container {
+    margin-top: 3rem;
+}
+
+.social-container img {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.footer-container button {
+    margin-top: 3rem;
+    padding: 12px 28px;
+    border: 2px solid black;
+    outline-width: 0;
+    color: white;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: 500;
+    background-image: linear-gradient(120deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%));
+}

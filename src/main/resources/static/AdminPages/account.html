@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to external CSS files -->
+    <link rel="stylesheet" href="../css/user-signup.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../img/favicon-32x32.png">
+    <!-- Jquery Swal fire -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Preconnect links for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Data Tables -->
+    <script src="../js/datatables/jquery.dataTables.min.js"></script>
+    <!-- Local Storage -->
+    <script src="../js/localStorage.js"></script>
+    <!-- Table -->
+    <script src="../js/table.js"></script>
+    <!-- Form Validation -->
+    <script src="../js/formValidation.js"></script>
+
+    <!-- Title of the page -->
+    <title>Customer Account</title>
+    <style>
+        #message {
+            display: none;
+            background: #f1f1f1;
+
+        }
+
+        #message span {
+            padding: 10px 10px;
+            font-size: 12px;
+        }
+
+        /* Add a green text color and a checkmark when the requirements are right */
+        .valid {
+            color: green;
+        }
+
+        .valid:before {
+            position: relative;
+            left: -5px;
+            content: "✔";
+        }
+
+        /* Add a red text color and an "x" when the requirements are wrong */
+        .invalid {
+            color: red;
+        }
+
+        .invalid:before {
+            position: relative;
+            left: -5px;
+            content: "✖";
+        }
+    </style>
+    <script>
+
+    </script>
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Logo and Contact Information -->
+        <!-- Nav bar -->
+        <script src="../js/PostLogin/responsive_navbar.js"></script>
+        <!-- //Nav Bar -->
+    </header>
+    <!-- //Header Section -->
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-box">
+            <div class="banner-box-container">
+                <h1>Create An Account</h1>
+            </div>
+            <!-- Typewriter Effect for Instruction -->
+            <div class="typewriter">
+                <h1>Please Create An Account By Filling The Form Below</h1>
+            </div>
+            <!--Create Account Form -->
+            <div>
+                <form name="signup_form" id="signup_form" style="width:30%;" class="form-box"
+                    onsubmit="return validate_accountform(event);">
+                    <table>
+                        <tr>
+                            <td>
+                                <!-- Input for First Name -->
+                                <div class="inputbox" id="account_number">
+                                    <ion-icon name="mail-outline" xxxxx \></ion-icon>
+                                    <input type="text" id="account_no" name="account_no">
+                                    <label for="">Account Number</label>
+                                </div>
+                                <!-- <span id="fname_validate" style="font-size: 12px ; color:red; font-weight:600; margin-top:16px;"></span> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- Input for Middle Name -->
+                                <div class="inputbox" id="customer_id">
+                                    <ion-icon name="mail-outline"></ion-icon>
+                                    <input type="text" id="cust_id" name="cust_id">
+                                    <label for="">Customer Id</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- Input for First Name -->
+                                <div class="inputbox" id="balance">
+                                    <ion-icon name="mail-outline" xxxxx \></ion-icon>
+                                    <input type="text" id="balance_amt" name="account_no">
+                                    <label for="">Balance</label>
+                                </div>
+                                <!-- <span id="fname_validate" style="font-size: 12px ; color:red; font-weight:600; margin-top:16px;"></span> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- Input  -->
+                                <div class="form_radio">
+                                    <span>Statis:&nbsp;</span>
+                                    <label class="radio_btn">Active
+                                        <input type="radio" name="radio" id="active" value="active" checked="checked">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio_btn">Inactive
+                                        <input type="radio" name="radio" id="inactive" value="inactive">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <!-- Dropdown for Account Type -->
+                                <select id="selectaccnt" name="selectaccnt"
+                                    style="background-color: transparent; color:white; border:2px solid white;">
+                                    <option selected>Type of Account</option>
+                                    <option>Current</option>
+                                    <option>Savings</option>
+                                    <option>Fixed Deposit Account</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                        </tr>
+                        <!-- Submit Button -->
+                        <tr>
+
+                            <td><input type="hidden" name="action" value="register">
+                                <button type="submit" id="account_register" class="user_register">Create
+                                    Account</button>
+
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- //Banner Section -->
+
+    <!-- Data Table Section -->
+    <div class="card">
+        <div id="example">
+            <table id="kt-datatable" class="table table-striped table-bordered" width="100%">
+                <thead>
+                    <th>Account Number</th>
+                    <th>Balance</th>
+                    <th>Account Type</th>
+                    <th>Status</th>
+                    <th>Customer Id</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Social Media Icons -->
+            <div class="social-container">
+                <img src="./img/icon-facebook.svg" alt="">
+                <img src="./img/icon-instagram.svg" alt="">
+                <img src="./img/icon-twitter.svg" alt="">
+                <img src="./img/icon-pinterest.svg" alt="">
+            </div>
+            <!-- Footer Menu Links -->
+            <div class="menu">
+                <a href="./about-us.html">About Us</a>
+                <a href="./contact-us.html">Contact Us</a>
+                <a href="#blog-section">Blog</a>
+            </div>
+            <div class="menu">
+                <a href="#">Careers</a>
+                <a href="#">Support</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <button>User Login</button>
+        </div>
+    </footer>
+    <!-- //Footer Section -->
+    <style>
+        #kt-datatable {
+            border: 1px solid black;
+            font-size: 12px;
+            font-family: Arial;
+        }
+
+        #kt-datatable th {
+            background: #007bff;
+            padding: 10px;
+            color: white;
+        }
+
+        #kt-datatable td {
+            padding: 10px;
+        }
+
+        .current-row {
+            background-color: coral;
+        }
+
+        .current-col {
+            /* background-color: cyan; */
+        }
+    </style>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+
+    <script>
+
+
+        var myInput = document.getElementById("password");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function () {
+            document.getElementById("message").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function () {
+            document.getElementById("message").style.display = "none";
+        }
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function () {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+            }
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+            }
+
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+            }
+        }
+
+
+    </script>
+
+    < </body>
+
+</html>

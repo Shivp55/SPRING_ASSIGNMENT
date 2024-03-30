@@ -1,0 +1,459 @@
+/* Settinhg the initial margin and padding to 0 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting the universal font AS poppins */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Designing the logo section  using flex property*/
+.logo {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-img {
+    display: flex;
+}
+
+.logo img {
+    height: 40px;
+    width: 90px;
+}
+
+.logo-img>p {
+    font-weight: 700;
+    font-size: 29px;
+    font-style: italic;
+}
+
+.logo-contacts {
+    display: inline-block;
+    display: flex;
+    margin-left: 40px;
+}
+
+.logo-contacts p {
+    margin-left: 20px;
+}
+
+/* Lower Navigation design */
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: linear-gradient(95deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%),
+            hsl(229.2, 26.04%, 37.65%),
+            hsl(206.3, 46.5%, 69.22%));
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    z-index: 999;
+}
+
+.nav-bar>button {
+    padding: 12px 28px;
+    border: 2px solid black;
+    outline-width: 0;
+    color: white;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: 500;
+    background-image: linear-gradient(120deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%));
+}
+
+.nav-bar button:hover {
+    background: linear-gradient(105deg,
+
+            hsl(225.82, 22.45%, 48.04%),
+            hsl(206.3, 46.5%, 69.22%));
+}
+
+/* Designing the contents of the navigation bar using float property */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a,
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a {
+    font-size: 18px;
+    box-sizing: border-box;
+    font-style: normal;
+}
+
+li a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #142340;
+}
+
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fcfeff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    color: black;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #142340;
+    color: whitesmoke;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Sticky Navigation Bar */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.banner {
+    padding-top: 60px;
+}
+
+/* BAckground design of the index page. */
+.banner {
+    display: flex;
+    background: url('../img/back-6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+/* Overlaying a box over background */
+.banner-box {
+    padding: 4em;
+    background: rgba(0, 0, 0, 0.72);
+    height: 80%;
+    width: 80%;
+}
+
+.banner-box p {
+    color: white;
+    font-size: 1.2em;
+}
+
+.banner-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.banner-text-container h2 {
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: white;
+    line-height: 1.1;
+}
+
+/* Animation */
+.typewriter {
+    margin-bottom: 20px;
+}
+
+.typewriter h1 {
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+    /* border-right: .15em solid white; */
+    white-space: nowrap;
+    margin: 0 50px;
+    font-size: 50px;
+    /* font-style: italic; */
+    /* text-decoration: underline; */
+    letter-spacing: .05em;
+    color: #FFFBF1;
+    animation: typing1 7s steps(40, end), blink-caret 2.5s step-end infinite;
+}
+
+.banner-text-container h4 {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-size: 30px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* The typing effect */
+@keyframes typing1 {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: transparent;
+    }
+}
+
+hr {
+    width: 100%;
+    /* outline-style: auto; */
+    border: 1px solid aqua;
+}
+
+.banner-text-list {
+    margin-top: 10%;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.l1 {
+    margin-left: 2%;
+    border-right: 1px solid white;
+    height: 200px;
+}
+
+.l1 h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: wheat;
+    text-align: center;
+}
+
+.l1 p {
+
+    font-size: 14px;
+    text-align: justify;
+    padding: 10px 15px;
+}
+
+/* Section 2 design */
+
+.container {
+    background-color: hsl(220, 16%, 96%);
+}
+
+.why-us {
+    padding-top: 10vh;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10vh;
+}
+
+.why-us>h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: hsl(233, 26%, 24%);
+}
+
+.why-us>p {
+    font-size: 18px;
+    color: #2a325e;
+    margin-bottom: 15px;
+    font-style: italic;
+    font-weight: 600;
+    text-align: justify;
+}
+
+.feature-section {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding-bottom: 10vh;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.feature-item {
+    width: 23%;
+}
+
+.feature-item>img {
+    width: 65px;
+    margin-bottom: 5px;
+}
+
+.feature-item>h1 {
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: hsl(233, 26%, 24%);
+
+}
+
+.feature-item>p {
+    font-size: 18px;
+    color: #2a325e;
+    margin-bottom: 15px;
+    font-style: italic;
+    font-weight: 600;
+    /* text-align:justify; */
+}
+
+.blog-section {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10vh;
+}
+
+.blog-section-h1 {
+    padding-left: 150px;
+    font-size: 45px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: hsl(233, 26%, 24%);
+}
+
+.article-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.article>img {
+    width: 250px;
+    height: 250px;
+}
+
+.article {
+    margin: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.content>p {
+    color: hsl(233, 8%, 62%);
+    font-weight: 400;
+    font-size: 14px;
+    text-align: justify;
+}
+
+/* footer section  */
+.footer {
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    background: linear-gradient(109deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%),
+            hsl(229.2, 26.04%, 37.65%),
+            hsl(206.3, 46.5%, 69.22%));
+    height: 30vh;
+}
+
+.footer-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 2rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.social-container {
+    margin-top: 3rem;
+}
+
+.social-container img {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.footer-container button {
+    margin-top: 3rem;
+    padding: 12px 28px;
+    border: 2px solid black;
+    outline-width: 0;
+    color: white;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: 500;
+    background-image: linear-gradient(120deg,
+            hsl(206.3, 46.5%, 69.22%),
+            hsl(225.82, 22.45%, 48.04%));
+}

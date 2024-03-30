@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/user-signin.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon-32x32.png">
+
+    <!-- Google Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Data Tables -->
+    <script src="js\datatables\jquery.dataTables.min.js"></script>
+    <!-- Local Storage -->
+    <script src="./js/localStorage.js"></script>
+    <!-- Table -->
+    <script src="js\table.js"></script>
+    <!-- Form Validation -->
+    <script src="js/loginFormValidations.js"></script>
+
+    <!-- Title -->
+    <title>User SignIn</title>
+    <script>
+
+        function check_email() {
+            var f = document.login.emailid.value;
+            var g = document.login.emailid;
+
+            var reg = /(\w+)\@(\w+)\.[a-zA-Z]/g;
+            if (f.trim() == "") {
+                alert("Please enter a valid email address");
+                document.getElementById("eid").style.borderBottomColor = 'red';
+                //document.getElementById("eid").reset();
+
+
+            }
+            else if (!reg.test(f)) {
+                //document.getElementById("erroremail").innerHTML="Please enter valid email";
+                alert("Please enter a valid email");
+                document.getElementById("eid").style.borderBottomColor = 'red';
+                //document.removeChild(iconElement)
+            }
+
+            else {
+
+                document.getElementById("eid").style.borderBottomColor = 'green';
+                var span = document.createElement('span')
+                //span.style.marginLeft = "20%";
+                // Create the <i> element
+                // Create the <i> element
+                var iconElement = document.createElement('i');
+                // Set the class attribute
+                iconElement.setAttribute('class', 'fa fa-check-circle-o');
+                // Set the aria-hidden attribute
+                iconElement.setAttribute('aria-hidden', 'true');
+                // Apply styles using JavaScript
+                iconElement.style.border = '2px solid white';
+                iconElement.style.borderRadius = '100%';
+                iconElement.style.background = 'white';
+                iconElement.style.color = 'green';
+                iconElement.style.fontSize = '30px';
+
+                // Append the icon element to the document body, or any other desired parent element
+                document.body.appendChild(iconElement);
+
+                // Append the <i> element to the document body or any desired parent element
+                span.appendChild(iconElement);
+                var eid = document.getElementById('eid');
+                eid.appendChild(span);
+                storeUserSignInData()
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Nav bar -->
+        <script src="./js/responsive_navbar.js"></script>
+        <!-- //Nav Bar -->
+    </header>
+    <!-- //Header Section -->
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-box">
+            <div class="banner-box-container">
+                <div class="banner-text-container">
+                    <div class="wrapper">
+                        <div class="static-txt">Welcome<span> Back User</span></div><br>
+                    </div>
+                    <hr style="width: 90%;"><br><br><br>
+                    <ul class="dynamic-txts">
+                        <li><span>Enter Your &nbsp;</span></li>
+                        <li><span>Email and Password </span></li>
+                        <li><span>to Proceed!!</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="form-box">
+                <div class="form-value">
+                    <form method="post" name="login" id="login" onsubmit="return validate_form(event);">
+                        <h2>Login</h2>
+                        <div class="inputbox" id="eid">
+                            <ion-icon name="mail-outline"></ion-icon>
+                            <input type="text" id="emailid" name="emailid" onblur="return check_email();">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="inputbox" id="pwd">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                            <input type="password" name="password" id="password">
+                            <label for="">Password</label>
+                        </div>
+                        <div class="forget">
+                            <label for=""><input type="checkbox">Remember Me <a
+                                    href="./user-forgot-password.html">Forgot Password</a></label>
+                        </div>
+                        <input type="hidden" name="action" value="login">
+                        <button type="submit" value="login" id="loginbtn">Login</button>
+                        <div class="register">
+                            <p>Don't have a account <a href="./user-signup.html">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //Banner Section -->
+
+    <!-- Data Table Section -->
+    <div class="card">
+        <div id="example">
+            <table id="kt-datatable-1" class="table table-striped table-bordered" width="100%">
+                <thead>
+                    <th>Email</th>
+                    <th>Password</th>
+                </thead>
+            </table>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="social-container">
+                <img src="./img/icon-facebook.svg" alt="">
+                <img src="./img/icon-instagram.svg" alt="">
+                <img src="./img/icon-twitter.svg" alt="">
+                <img src="./img/icon-pinterest.svg" alt="">
+            </div>
+            <div class="menu">
+                <a href="./about-us.html">About Us</a>
+                <a href="./contact-us.html">Contact Us</a>
+                <a href="#blog-section">Blog</a>
+            </div>
+            <div class="menu">
+                <a href="#">Careers</a>
+                <a href="#">Support</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <button>User Login</button>
+        </div>
+    </footer>
+    <!-- //Footer Section -->
+    <style>
+        #kt-datatable-1 {
+            border: 1px solid black;
+            font-size: 12px;
+            font-family: Arial;
+        }
+
+        #kt-datatable-1 th {
+            background: #007bff;
+            padding: 10px;
+            color: white;
+        }
+
+        #kt-datatable-1 td {
+            padding: 10px;
+        }
+
+        .current-row {
+            background-color: coral;
+        }
+
+        .current-col {
+            /* background-color: cyan; */
+        }
+    </style>
+</body>
+
+</html>
