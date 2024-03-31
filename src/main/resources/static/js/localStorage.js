@@ -155,12 +155,14 @@ function storeDataNewUser() {
 			localStorage.setItem("user(" + sessionStorage.clickcount + ")", JSON.stringify(userArray));
 
 			$.ajax({
-				url: "http://localhost:8080/CITIBANK/add-user",
+				url: "/CITIBANK/add-user",
 				type: "POST",
 				contentType: "application/json",
 				data: JSON.stringify(userArray),
 				success: function(data) {
+					console.log(data);
 					//alert("Data addedd");
+					
 					console.log("Data sent Successfully");
 				}
 			});
@@ -187,11 +189,12 @@ function storeDataNewUser() {
 			sessionStorage.clickcount = 1;
 			localStorage.setItem("user(" + sessionStorage.clickcount + ")", JSON.stringify(userArray));
 			$.ajax({
-				url: "http://localhost:8080/CITIBANK/add-user",
+				url: "/CITIBANK/add-user",
 				type: "POST",
 				contentType: "application/json",
 				data: JSON.stringify(userArray),
 				success: function(data) {
+					console.log(data);
 					//alert("Data addedd");
 					console.log("Data sent Successfully");
 				}
@@ -326,12 +329,13 @@ function storeAccountData(data) {
             localStorage.setItem("account(" + sessionStorage.clickcount + ")", JSON.stringify(userArray));
 
             $.ajax({
-                url: "http://localhost:8080/CITIBANK/add-account",
+                url: "/CITIBANK/add-account",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(userArray),
                 success: function (data) {
                     //alert("Data addedd");
+                    console.log(data);
                     console.log("Data sent Successfully");
                 }
             });
@@ -353,7 +357,7 @@ function storeAccountData(data) {
             sessionStorage.clickcount = 1;
             localStorage.setItem("user(" + sessionStorage.clickcount + ")", JSON.stringify(userArray));
             $.ajax({
-                url: "http://localhost:8080/CITIBANK/add-account",
+                url: "/CITIBANK/add-account",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(userArray),

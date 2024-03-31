@@ -170,3 +170,64 @@ function createUserSignInTable(email, password) {
     });
 
 }
+
+function createAddCustomerTable(jsonList) {
+    // Get a reference to the table body
+    var tbody = document.querySelector("#kt-datatable tbody");
+
+    // Clear existing table contents
+    tbody.innerHTML = "";
+
+    // Iterate over each object in the JSON list
+    jsonList.forEach(function(item) {
+        // Create row
+        const row = document.createElement("tr");
+
+        // Create cells and text nodes
+        for (const key in item) {
+            if (item.hasOwnProperty(key)) {
+                const cell = document.createElement("td");
+                const cellText = document.createTextNode(item[key]);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+        }
+
+        // Append row to the table body
+        tbody.appendChild(row);
+    });
+
+    // Get all the rows of the table
+    var tableRows = document.querySelectorAll('#kt-datatable tr');
+
+    // Add event listeners to each row
+    tableRows.forEach(function(row) {
+        // Event listener for mouse entering the row
+        row.addEventListener('mouseenter', function() {
+            row.style.backgroundColor = 'green'; // Change background color on hover
+        });
+
+        // Event listener for mouse leaving the row
+        row.addEventListener('mouseleave', function() {
+            row.style.backgroundColor = 'lightcyan'; // Reset background color when mouse leaves
+        });
+    });
+}
+
+function reloadAndCreateTable(jsonList) {
+    // Clear existing table body
+    var tbl = document.getElementById("kt-datatable");
+    var tbody = tbl.querySelector("tbody");
+    if (tbody) {
+        tbody.innerHTML = ''; // Clear existing rows
+    } else {
+        // If tbody doesn't exist, create one
+        tbody = document.createElement("tbody");
+        tbl.appendChild(tbody);
+    }
+
+    // Call the function to create new rows
+    createAddCustomerTable(jsonList);
+}
+
+

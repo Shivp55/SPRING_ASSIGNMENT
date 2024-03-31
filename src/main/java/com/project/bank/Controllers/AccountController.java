@@ -1,5 +1,6 @@
 package com.project.bank.Controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -48,6 +49,13 @@ public class AccountController {
 
 		}
 	}
+	
+	@GetMapping("/get-accounts")
+	public ResponseEntity<List<Account>> getCustomers()
+	{
+		return ResponseEntity.ok(accountService.viewAccounts());
+	}
+
 
 
 }

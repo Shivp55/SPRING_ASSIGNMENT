@@ -226,7 +226,11 @@
                         </tr>
                         <!-- Submit Button -->
                         <tr>
-                            <td></td>
+                            <td>
+                            <input type="hidden" name="action" value="get-user">
+                                <button type="submit" id="get-user" class="get-user">Get Users</button>
+                            
+                            </td>
                             <td><input type="hidden" name="action" value="register">
                                 <button type="submit" id="user_register" class="user_register">Add User</button>
 
@@ -245,14 +249,15 @@
         <div id="example">
             <table id="kt-datatable" class="table table-striped table-bordered" width="100%">
                 <thead>
+                	<th>Customer Id</th>
                     <th>Name</th>
-                    <th>Phone</th>
                     <th>Email</th>
                     <th>Address</th>
                     <th>Postal Code</th>
+                    <th>Password</th>
+                    <th>Phone Number</th>
                     <th>DOB</th>
                     <th>Gender</th>
-                    <th>Password</th>
                 </thead>
             </table>
         </div>
@@ -311,8 +316,65 @@
     </style>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
 
-    <script>
+    <script type='text/javascript'>
+    
+   // $(document).ready(function() {
+        // Code inside this function will execute when the DOM is fully loaded
+        document.getElementById("get-user").addEventListener("click", function() {
+            var btn = this; // Use "this" to refer to the clicked button
 
+            // Show loader animation
+            btn.innerHTML = "<div class='loader'></div>";
+
+            // Start a timer for the animation to finish
+            var timeout = setTimeout(function () {
+                console.log("Work done");
+
+                // When the work is done, reset the button to original state
+                btn.innerHTML = 'Get Users';
+
+                // After the animation finishes, show SweetAlert
+                swal({
+                    title: "Customers Data Retrieved",
+                    text: "Please check the table below to confirm your account",
+                    icon: "success",
+                    button: "OK",
+                });
+
+                // Make AJAX request to get users data
+                $.ajax({
+                    url: "/CITIBANK/get-users",
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function(data) {
+                        // Reload table with new data
+                        reloadAndCreateTable(data);
+                        console.log(data);
+                    }
+                });
+
+                // Reset form
+                document.getElementById("signup_form").reset();
+             // Reattach the event listener for the button click
+                btn.addEventListener('click', buttonClickHandler);
+            }, 3000);
+
+            // Define a separate function for the button click handler
+            function buttonClickHandler() {
+            clearTimeout(timeout);
+            btn.innerHTML = "<div class='loader'></div> Get Users"; // Reset button text
+        }
+
+            // Remove the event listener before adding it again to prevent multiple event listeners
+            btn.removeEventListener('click', buttonClickHandler);
+
+            // Clear the timeout if the button is clicked before the animation finishes
+            btn.addEventListener('click', buttonClickHandler);
+        });
+  //  });//
+
+    
+    
 
         var myInput = document.getElementById("password");
         var letter = document.getElementById("letter");
@@ -375,6 +437,6 @@
 
     </script>
 
-    < </body>
+    </body>
 
 </html>

@@ -1,5 +1,6 @@
 package com.project.bank.Controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -55,5 +56,11 @@ public class CustomerController {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
+	}
+	
+	@GetMapping("/get-users")
+	public ResponseEntity<List<Customer>> getCustomers()
+	{
+		return ResponseEntity.ok(customerService.listCustomers());
 	}
 }

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,14 +16,15 @@ import com.project.bank.Entities.Account;
 @Component
 public class AccountServices {
 
-	public AccountServices() {
+	public AccountServices() throws Exception{
 
 	}
-
+	 // Define the file location for JSON data
+    public final String fileLocation = new ClassPathResource("static/json/accounts.json").getFile().getAbsolutePath();
 	public List<Account> viewAccounts(){
 		try {
 
-			String fileLocation="./src/main/resources/accounts.json";
+			//String fileLocation="/resources/static/accounts.json";
 			ObjectMapper objectMapper= new ObjectMapper();
 			objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 			File file=new File(fileLocation);
@@ -38,7 +41,7 @@ public class AccountServices {
 
 	public Account addAccount(Account account) {
 		try {
-			String fileLocation="./src/main/resources/accounts.json";
+			//String fileLocation="/resources/static/accounts.json";
 			ObjectMapper objectMapper= new ObjectMapper();
 			objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 			File file=new File(fileLocation);
@@ -57,4 +60,3 @@ public class AccountServices {
 		return account;
 	}
 }
-

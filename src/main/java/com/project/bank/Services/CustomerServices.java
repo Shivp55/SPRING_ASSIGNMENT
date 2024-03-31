@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,18 +16,11 @@ import com.project.bank.Entities.Customer;
 @Component
 public class CustomerServices {
 
-	public CustomerServices() {
+	public CustomerServices() throws Exception {
 
 	}
 
-	private static List<Customer> list= new ArrayList<>();
-
-	static {
-		list.add(new Customer(1,"Shaishav","admin@gmail.com","Dublin","D17KF80","Admin@1234","1234566778","2000-12-30","male"));
-
-
-	}
-
+	public final String fileLocation = new ClassPathResource("static/json/customers.json").getFile().getAbsolutePath();
 	public String getUser(String email, String password){
 		String c="";
 		try {
@@ -50,7 +45,7 @@ public class CustomerServices {
 	public List<Customer> listCustomers(){
 		try {
 
-			String fileLocation="./src/main/resources/customers.json";
+			//String fileLocation="./src/main/resources/customers.json";
 			ObjectMapper objectMapper= new ObjectMapper();
 			objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 			File file=new File(fileLocation);
@@ -70,7 +65,7 @@ public class CustomerServices {
 	public Customer addCustomer(Customer c) {
 		try {
 
-			String fileLocation="./src/main/resources/customers.json";
+			//String fileLocation="./src/main/resources/customers.json";
 			ObjectMapper objectMapper= new ObjectMapper();
 			objectMapper.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
 			File file=new File(fileLocation);
@@ -91,6 +86,8 @@ public class CustomerServices {
 		}
 		return c;
 	}
+	
+	
 
 }
 
