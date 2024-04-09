@@ -1,18 +1,20 @@
 package com.project.bank.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 //import jakarta.persistence.OneToOne;
 
 @Entity
 public class Account {
 
 	@Id
+	private Long customer_id;
 	private Long account_number;
 	private Long balance;
 	private String account_type;
 	private String status;
-	private Long customer_id;
+	
 	public Long getAccount_number() {
 		return account_number;
 	}

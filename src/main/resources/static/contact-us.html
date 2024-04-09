@@ -13,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-
+	<!-- Jquery Swal fire -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./img/favicon-32x32.png">
     <!-- JQuery -->
@@ -71,10 +73,10 @@
             </div>
         </section>
         <!-- Contact Us form  -->
-        <section class="Contact-us-form" id="Contact-us-form" onsubmit="return validate_form(event);">
+        <section class="Contact-us-form" id="Contact-us-form" onsubmit="return validate_contactform(event);">
             <div class="form-box">
                 <div class="form-value">
-                    <form method="post" name="COntact Us" id="login">
+                    <form method="post" name="COntact Us" id="contact-form">
                         <h2>Let Us Know</h2>
                         <div class="inputbox" id="fname">
                             <ion-icon name="mail-outline"></ion-icon>

@@ -43,7 +43,7 @@ const ulList = document.createElement('ul'); // Create an unordered list for nav
 const navLinks = [
     { href: './index.html', iconClass: 'fa fa-fw fa-home', text: 'Home' },
     { href: '#', iconClass: 'fa fa-fw fa-user', text: 'Customer', dropdownLinks: [
-        { href: './user-signin.html', text: 'Login' },
+        { href: '/CITIBANK/login', text: 'Login' },
         { href: './user-signup.html', text: 'Create Account' }
     ] },
     { href: './admin-signin.html', iconClass: 'fa fa-user-circle-o', text: 'Admin' },

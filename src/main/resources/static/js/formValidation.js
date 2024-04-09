@@ -17,6 +17,26 @@ function validate_form(event) {
 	var accnt = document.getElementById('selectaccnt');
 	var post = document.getElementById('post');
 
+	var birthdate = new Date(document.getElementById("date").value);
+
+		// Get the current date
+		var currentDate = new Date();
+
+		// Check if the birthdate is greater than or equal to the current year
+		if (birthdate.getFullYear() >= currentDate.getFullYear()) {
+			alert("Birthdate must be in the past.");
+			return;
+		}
+
+		// Calculate age
+		var age = currentDate.getFullYear() - birthdate.getFullYear();
+		console.log(age)
+		// Check if the age is less than one year
+		if (age < 5) {
+			alert("User's age must be greater than Five years.");
+			return;
+		}
+
 	//function check names
 	if (fname.value == null || fname.value == "") {
 		alert("Please enter a valid first name");
@@ -57,14 +77,25 @@ function validate_form(event) {
 		document.getElementById('selectaccnt').style.borderColor = "green"
 	}
 	// Validating phone number
-	if (phone.value.length < 1 || phone.value.length > 10) {
-		alert("Invalid phone number");
-		document.getElementById('ph.no').style.borderColor = "red"
-		phone.focus();
-		return false;
-	} else {
-		document.getElementById('ph.no').style.borderColor = "green"
-	}
+	// Validating phone number
+		if (phone.value.length < 9 || phone.value.length > 9) {
+			alert("Phone Number should be of 9 Digits");
+			document.getElementById('ph.no').style.borderColor = "red"
+			phone.focus();
+			return false;
+		} else {
+			document.getElementById('ph.no').style.borderColor = "green"
+		}
+		
+
+		for(i=0; i<phone.value.length; i++){
+			var ch= phone.value.charAt(i);
+			if((ch < "0")|| (ch>"9")){
+				alert("Enter Only Digits in Phone Number");
+				return false;
+			}
+			
+		}
 
 	var pwd = password.value;
 	//Validating Password
@@ -109,7 +140,28 @@ function validate_form(event) {
 	}
 	if (check_bothPass() == true && ValidateEmail() == true) {
 
+		var name = fname.value + " " + mname.value + " " + lname.value;
+		var email = email.value;
+		var password = password.value;
+		var radio = document.querySelector('input[name="radio"]:checked').value;
+		var rvalue;
+		//Retriving radio value
+		if (radio == 'male') {
+			rvalue = document.getElementById('male').value;
+		}
+		else if (radio == 'female') {
+			rvalue = document.getElementById('female').value;
+		}
+		else if (radio == 'others') {
+			rvalue = document.getElementById('others').value;
+		}
 
+		var gender = rvalue
+		var ph_no = phone.value;
+		var postal = post.value;
+		var accountType = accnt.value;
+		var addr = address.value;
+		var dob = document.getElementById("date").value;
 		// alert("All fields are valid");
 		// this.innerHTML = "<div class='loader'></div>";
 		var btn = document.getElementById("user_register");
@@ -129,7 +181,7 @@ function validate_form(event) {
 				icon: "success",
 				button: "OK",
 			});
-			storeData();
+			storeCustomerData(name,email,addr,postal,password,ph_no,dob,gender, accountType);
 			document.getElementById("signup_form").reset();
 		}, 3000);
 
@@ -198,6 +250,27 @@ function validate_form_addCustomer(event) {
 		var phone = document.getElementById('phone');
 		var post = document.getElementById('post');
 
+		var birthdate = new Date(document.getElementById("date").value);
+
+		// Get the current date
+		var currentDate = new Date();
+
+		// Check if the birthdate is greater than or equal to the current year
+		if (birthdate.getFullYear() >= currentDate.getFullYear()) {
+			alert("Birthdate must be in the past.");
+			return;
+		}
+
+		// Calculate age
+		var age = currentDate.getFullYear() - birthdate.getFullYear();
+		console.log(age)
+		// Check if the age is less than one year
+		if (age < 5) {
+			alert("User's age must be greater than Five years.");
+			return;
+		}
+
+
 		//function check names
 		if (fname.value == null || fname.value == "") {
 			alert("Please enter a valid first name");
@@ -227,15 +300,26 @@ function validate_form_addCustomer(event) {
 			document.getElementById('lastname').style.borderColor = "green"
 		}
 		// Validating phone number
-		if (phone.value.length < 1 || phone.value.length > 10) {
-			alert("Invalid phone number");
+		if (phone.value.length < 9 || phone.value.length > 9) {
+			alert("Phone Number should be of 9 Digits");
 			document.getElementById('ph.no').style.borderColor = "red"
 			phone.focus();
 			return false;
 		} else {
 			document.getElementById('ph.no').style.borderColor = "green"
 		}
+		
 
+		for(i=0; i<phone.value.length; i++){
+			var ch= phone.value.charAt(i);
+			if((ch < "0")|| (ch>"9")){
+				alert("Enter Only Digits in Phone Number");
+				return false;
+			}
+			
+		}
+		
+		
 		var pwd = password.value;
 		//Validating Password
 		if (pwd.length === 0) {
@@ -382,7 +466,20 @@ function validate_accountform(event) {
 		}
 
 		if (checkAccno() == true) {
-
+		
+			var account_number=account_no.value;
+			var customer_id=cust_id.value;
+			var bal=balance.value;
+			var accntType=accnt.value;
+			var radio = document.querySelector('input[name="radio"]:checked').value;
+		    var rvalue;
+		    //Retriving radio value
+		    if (radio == 'active') {
+		        rvalue = document.getElementById('active').value;
+		    }
+		    else if (radio == 'inactive') {
+		        rvalue = document.getElementById('inactive').value;
+		    }
 
 			// alert("All fields are valid");
 			// this.innerHTML = "<div class='loader'></div>";
@@ -403,7 +500,7 @@ function validate_accountform(event) {
 					icon: "success",
 					button: "OK",
 				});
-				storeAccountData();
+				storeAccountToDatabase(account_number,customer_id,accntType,bal,rvalue);
 				document.getElementById("signup_form").reset();
 			}, 3000);
 
@@ -413,12 +510,70 @@ function validate_accountform(event) {
 				btn.innerHTML = 'Create Account'; // Reset button text
 			});
 		}
-		
-		}else {
-			// If any other button is clicked, do nothing
-			return false;
-		}
-	
 
-
+	} else {
+		// If any other button is clicked, do nothing
+		return false;
+	}
 }
+
+function validate_contactform(event) {
+	event.preventDefault();
+
+	var i;
+	var name = document.getElementById("name");
+	var email = document.getElementById("emailid");
+
+	var phone = document.getElementById('phone');
+	var msg = document.getElementById('msg');
+
+	//function check names
+	if (name.value == null || name.value == "") {
+		alert("Please enter a valid name");
+
+		name.focus();
+		return false;
+	}
+
+
+	// Validating phone number
+	if (phone.value.length < 1 || phone.value.length > 10) {
+		alert("Invalid phone number");
+		document.getElementById('ph.no').style.borderColor = "red"
+		phone.focus();
+		return false;
+	}
+
+
+
+	//Validating Address
+	if (msg.value == null || msg.value == "") {
+		alert("Please enter a valid message");
+		msg.focus();
+		return false;
+	}
+
+	if (ValidateEmail() == true) {
+
+
+		// alert("All fields are valid");
+		// this.innerHTML = "<div class='loader'></div>";
+		var btn = document.getElementById("submit");
+		//btn.innerHTML = "<div class='loader'></div>";
+
+		// Start a timer for the animation to finish
+
+
+		// After the animation finishes, show SweetAlert
+		swal("Message Sent!", "Our Team Will Contact You Soon Stay Alert!", "success");
+		document.getElementById("contact-form").reset();
+
+		// Clear the timeout if the button is clicked before the animation finishes
+		btn.addEventListener('click', function() {
+			clearTimeout(timeout);
+			btn.innerHTML = 'Submit'; // Reset button text
+		});
+	}
+}
+
+

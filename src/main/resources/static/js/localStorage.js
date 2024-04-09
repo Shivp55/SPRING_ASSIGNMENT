@@ -24,10 +24,6 @@ function storeData() {
 	else if (radio == 'others') {
 		rvalue = document.getElementById('others').value;
 	}
-
-	// fname=fname.value;
-	// console.log(fname);
-
 	//json array initialization
 	const userArray = {
 		"name": fname.value + " " + mname.value + " " + lname.value,
@@ -48,10 +44,6 @@ function storeData() {
 			sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
 			//Saving user data in session storage
 			localStorage.setItem("user(" + sessionStorage.clickcount + ")", JSON.stringify(userArray));
-
-
-
-
 			//Retrieving user data
 			var user = JSON.parse(localStorage.getItem('user(' + sessionStorage.clickcount + ')'));
 			var fname = user.name;
@@ -63,13 +55,8 @@ function storeData() {
 			var accnt = user.accnt;
 			var gender = user.gender;
 			var post = user.post;
-
-
-
 			//Sending data for creating table
 			createTable(fname, phone, email, address, post, date, gender, accnt, password);
-
-
 		} else {
 			//Set counter to 1
 			sessionStorage.clickcount = 1;
@@ -166,24 +153,6 @@ function storeDataNewUser() {
 					console.log("Data sent Successfully");
 				}
 			});
-
-			/*//Retrieving user data
-			var user = JSON.parse(localStorage.getItem('user(' + sessionStorage.clickcount + ')'));
-			var cust_id=user.customer_id;
-			var fname = user.name;
-			var email = user.email;
-			var phone = user.ph_no;
-			var password = user.password;
-			var address = user.address;
-			var date = user.dob;
-			// var accnt = user.accnt;
-			var gender = user.gender;
-			var post = user.postal_code;
-
-			//Sending data for creating table
-			createTableNewUser(cust_id,fname, phone, email, address, post, date, gender, password);
-*/
-
 		} else {
 			//Set counter to 1
 			sessionStorage.clickcount = 1;
@@ -199,18 +168,6 @@ function storeDataNewUser() {
 					console.log("Data sent Successfully");
 				}
 			});
-			/*var user = JSON.parse(localStorage.getItem('user(' + sessionStorage.clickcount + ')'));
-			var fname = user.name;
-			var email = user.email;
-			var phone = user.phone;
-			var password = user.password;
-			var address = user.address;
-			var date = user.date;
-			// var accnt = user.accnt;
-			var gender = user.gender;
-			var post = user.post;
-
-			createTableNewUser(fname, phone, email, address, post, date, gender, password);*/
 		}
 
 	} else {
@@ -307,17 +264,13 @@ function storeAccountData(data) {
         rvalue = document.getElementById('inactive').value;
     }
 
-
-    // fname=fname.value;
-    // console.log(fname);
-
     //json array initialization
     const userArray = {
+		'customer_id': cust_id.value,
         "account_number": account_no.value,
         'balance': balance.value,
         'account_type': accnt.value,
         'status': rvalue,
-        'customer_id': cust_id.value,
     }
 
     //initiatiating html session storage
@@ -333,25 +286,12 @@ function storeAccountData(data) {
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(userArray),
-                success: function (data) {
+                success: function (response) {
                     //alert("Data addedd");
-                    console.log(data);
+                    console.log(response);
                     console.log("Data sent Successfully");
                 }
             });
-
-            //Retrieving account data
-           /* var account = JSON.parse(localStorage.getItem('account(' + sessionStorage.clickcount + ')'));
-            var account_number = account.account_number;
-            var balance_amt = account.balance;
-            var account_type = account.account_type;
-            var status = account.status;
-            var customer_id = account.customer_id;
-*/
-            //Sending data for creating table
-           // createTableAccount(account_number, balance_amt, account_type, status, customer_id);
-
-
         } else {
             //Set counter to 1
             sessionStorage.clickcount = 1;
@@ -367,17 +307,6 @@ function storeAccountData(data) {
                     console.log("Data sent Successfully");
                 }
             });
-
-           /* //Retrieving account data
-            var account = JSON.parse(localStorage.getItem('account(' + sessionStorage.clickcount + ')'));
-            var account_number = account.account_number;
-            var balance_amt = account.balance;
-            var account_type = account.account_type;
-            var status = account.status;
-            var customer_id = account.customer_id;
-*/
-            //Sending data for creating table
-           // createTableAccount(account_number, balance_amt, account_type, status, customer_id);
         }
 
     } else {
