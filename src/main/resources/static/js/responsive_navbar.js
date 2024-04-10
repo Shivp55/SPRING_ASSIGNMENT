@@ -46,7 +46,7 @@ const navLinks = [
         { href: '/CITIBANK/login', text: 'Login' },
         { href: './user-signup.html', text: 'Create Account' }
     ] },
-    { href: './admin-signin.html', iconClass: 'fa fa-user-circle-o', text: 'Admin' },
+    { href: '/CITIBANK/login', iconClass: 'fa fa-user-circle-o', text: 'Admin' },
     { href: './about-us.html', iconClass: 'fa fa-handshake-o', text: 'About' },
     { href: './contact-us.html', iconClass: 'fa fa-address-book', text: 'Contact Us' },
     { href: './gallery.html', iconClass: 'fa fa-picture-o', text: 'Gallery' }

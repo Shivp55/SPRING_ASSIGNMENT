@@ -7,5 +7,5 @@ import com.project.bank.Entities.Account;
 
 
 public interface AccountRepository extends CrudRepository<Account, Integer> {
-
+	
 }

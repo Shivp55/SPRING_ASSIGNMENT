@@ -36,6 +36,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             }
         }
         // If no specific role is matched, redirect to a default page
-        response.sendRedirect("/CITIBANK/default.html");
+        response.sendRedirect("/CITIBANK/index.html");
     }
 }

@@ -85,5 +85,18 @@ public AdminServices(CustomerRepository customerRepository) {
 		}
 		return c;
 	}
+	
+	public ArrayList<Customer> getAllCustomers(){
+		ArrayList<Customer> c=null;
+		try {
+			c=(ArrayList<Customer>) customerRepository.findAll();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+	
+	
 
 }

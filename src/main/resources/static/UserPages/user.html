@@ -1,10 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<!-- Meta tags for character set and viewport -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Link to external CSS files -->
+<link rel="stylesheet" href="../css/user-signup.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="../img/favicon-32x32.png">
+<!-- Jquery Swal fire -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Preconnect links for fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+	rel="stylesheet">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- JQuery -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- Data Tables -->
+<script src="../js/datatables/jquery.dataTables.min.js"></script>
+<!-- Local Storage -->
+<script src="../js/dataStorage.js"></script>
+<!-- Table -->
+<script src="../js/table.js"></script>
+<!-- Form Validation -->
+<script src="../js/formValidation.js"></script>
+
+<!-- Title of the page -->
+<title>Add Customer</title>
+<style>
+#message {
+	display: none;
+	background: #f1f1f1;
+}
+
+#message span {
+	padding: 10px 10px;
+	font-size: 12px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+	color: green;
+}
+
+.valid:before {
+	position: relative;
+	left: -5px;
+	content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+	color: red;
+}
+
+.invalid:before {
+	position: relative;
+	left: -5px;
+	content: "✖";
+}
+</style>
+<script>
+	
+</script>
+
 </head>
+
 <body>
-	<h1>Hii</h1>
+	<!-- Header Section -->
+	<header>
+		<!-- Logo and Contact Information -->
+		<!-- Nav bar -->
+		<script src="../js/PostLogin/responsive_navbar.js"></script>
+		<!-- //Nav Bar -->
+	</header>
+	<!-- //Header Section -->
+
+	<!-- Banner Section -->
+	<section class="banner">
+		<div class="banner-box">
+			<div class="banner-box-container">
+				<h1>Create An Account</h1>
+			</div>
+			<!-- Typewriter Effect for Instruction -->
+			<div class="typewriter">
+				<h1>Please Create An Account By Filling The Form Below</h1>
+			</div>
+			<!--Create Account Form -->
+			<div class="form-box">
+				<form name="signup_form" id="signup_form" class="form-box" action="/CITIBANK/logout">
+					<table>
+					<tr>
+						<td colspan="3"></td>
+						</tr>
+						<!-- Submit Button -->
+						<tr>
+							<td><input type="hidden" name="action" value="get-user">
+								<button type="submit" id="logout" class="get-user">Logout</button></td>
+							
+							<td></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</section>
+	<!-- //Banner Section -->
+
+	<!-- Data Table Section -->
+	<div class="card" style="width:100%">
+		<div id="example">
+			<table id="kt-datatable" class="table table-striped table-bordered"
+				width="100%">
+				<thead>
+					<th>Customer Id</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Address</th>
+					<th>Postal Code</th>
+					<th>Password</th>
+					<th>Phone Number</th>
+					<th>DOB</th>
+					<th>Gender</th>
+					<th>Account Type</th>
+					<th>Role</th>
+				</thead>
+			</table>
+		</div>
+	</div>
+	</div>
+
+	<!-- Footer Section -->
+	<footer class="footer">
+		<div class="footer-container">
+			<!-- Social Media Icons -->
+			<div class="social-container">
+				<img src="../img/icon-facebook.svg" alt=""> <img
+					src="../img/icon-instagram.svg" alt=""> <img
+					src="../img/icon-twitter.svg" alt=""> <img
+					src="../img/icon-pinterest.svg" alt="">
+			</div>
+			<!-- Footer Menu Links -->
+			<div class="menu">
+				<a href="../about-us.html">About Us</a> <a href="../contact-us.html">Contact
+					Us</a> <a href="#blog-section">Blog</a>
+			</div>
+			<div class="menu">
+				<a href="#">Careers</a> <a href="#">Support</a> <a href="#">Privacy
+					Policy</a>
+			</div>
+			<button>User Login</button>
+		</div>
+	</footer>
+	<!-- //Footer Section -->
+	<style>
+#kt-datatable {
+	border: 1px solid black;
+	font-size: 12px;
+	font-family: Arial;
+}
+
+#kt-datatable th {
+	background: #007bff;
+	padding: 10px;
+	color: white;
+}
+
+#kt-datatable td {
+	padding: 10px;
+}
+
+.current-row {
+	background-color: coral;
+}
+
+.current-col {
+	/* background-color: cyan; */
+	
+}
+</style>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+
+
+
 </body>
+
 </html>
